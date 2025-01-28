@@ -1,0 +1,107 @@
+@mixin flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin c-pointer {
+    cursor: pointer;
+}
+
+@mixin gap {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.navbar-container {
+    position: sticky;
+    top: 1.5rem;
+    background-color: var(--navbar-bg);
+    padding: 0.5rem 1.5rem;
+    border-radius: 1rem;
+
+    @include flex-between;
+
+    .brand {
+        @include gap;
+        color: var(--white);
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 6px;
+            width: 60px;
+            height: 50px;
+            @include c-pointer;
+
+            .line {
+                width: 40px;
+                height: 5px;
+                background-color: var(--white);
+                transition-duration: 500ms;
+                box-sizing: content-box;
+            }
+
+            &.opened {
+                gap: 0;
+
+                .line {
+                    background-color: var(--accent);
+                    width: 42px;
+                }
+
+                .line:nth-child(1) {
+                    transform: rotate(45deg) translateY(2.8px);
+                }
+
+                .line:nth-child(2) {
+                    display: none;
+                }
+
+                .line:nth-child(3) {
+                    transform: rotate(-45deg) translateY(-2.8px);
+                }
+
+            }
+        }
+
+        img {
+            background-color: var(--black);
+            border-radius: 50%;
+        }
+    }
+
+    .link-container {
+        @include gap;
+        font-size: 1.2rem;
+        letter-spacing: 0.1ch;
+
+        .link {
+            color: var(--white);
+            text-decoration: none;
+            @include c-pointer;
+            user-select: none;
+
+            &.active {
+                color: var(--accent);
+                scale: 1.2;
+                text-decoration: underline;
+                transition-duration: 200ms;
+            }
+        }
+
+        .link:hover, img:hover {
+            color: var(--accent);
+            scale: 1.2;
+            text-decoration: underline;
+            transition-duration: 200ms;
+        }
+
+        img {
+            border-radius: 50%;
+            @include c-pointer;
+        }
+    }
+}

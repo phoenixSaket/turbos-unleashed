@@ -1,0 +1,15 @@
+<div class="navbar-container">
+    <div class="brand">
+        <div class="hamburger" (click)="toggleSideBar()" [ngClass]="sideBarOpened ? 'opened': ''">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <img src="/logo.png" alt="Turbos Unleashed" (click)="checkURL('')">
+    </div>
+
+    <div class="link-container">
+        <div class="link" [ngClass]="link.isActive ? 'active': ''" *ngFor="let link of links" (click)="checkURL(link.name)">{{link.title}}</div>
+        <img src="/avatar.png" alt="Avatar">
+    </div>
+</div>
