@@ -1,0 +1,30 @@
+.sidebar-container {
+    position: relative;
+    top: 1.5rem;
+    color: var(--white);
+    background-color: var(--bg);
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 500ms;
+    width: 450px;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    height: 100%;
+    
+    &.closed {
+        left: -450px;
+        width: 0;
+        padding: 0;
+    }
+
+    &.opened {
+        left: 0;
+        width: 450px;
+        padding: 1.5rem;
+    }
+
+    .title {
+        font-size: 3rem;
+        border-bottom: 1px solid var(--white);
+        text-transform: uppercase;
+        letter-spacing: 0.3ch;
+    }
+}

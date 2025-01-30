@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Link, links } from '../../content';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
+import { SidebarService } from '../sidebar/sidebar.service';
 
 @Component({
   selector: 'app-navbar',
@@ -13,16 +14,15 @@ import { Router, RouterModule } from '@angular/router';
 export class NavbarComponent implements OnInit {
 
   links: Link[] = [];
-  sideBarOpened: boolean = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, public sidebarService: SidebarService) {}
 
   ngOnInit(): void {
     this.links = JSON.parse(JSON.stringify(links));
   }
 
   toggleSideBar() {
-    this.sideBarOpened = !this.sideBarOpened;
+    this.sidebarService.toggleSidebar();
   }
 
   checkURL(url: string = "") {
