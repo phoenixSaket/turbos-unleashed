@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class SidebarService {
 
-  public isOpened: boolean = false;
+  public isOpened: boolean = true;
 
   constructor() { }
 

@@ -1,13 +1,21 @@
 <div class="carousel-container">
-    <div class="image-container">
-        <img [src]="img" alt="carousel image" class="news-image">
+    <div class="multiple-images-container">
+        <div class="navigation-icon material-symbols-outlined back" (click)="previous()">
+            chevron_left
+        </div>
+        <div class="image-container multi">
+            <img *ngFor="let image of images" [src]="image" alt="carousel image" class="news-image">
+        </div>
+        <div class="navigation-icon material-symbols-outlined forward" (click)="next()">
+            chevron_right
+        </div>
     </div>
 
     <div class="title">
-        {{title}}
+        {{news[this.currentImage].title}} {{currentImage}}
     </div>
 
     <div class="description">
-        {{description}}
+        {{news[this.currentImage].description}}
     </div>
 </div>
